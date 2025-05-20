@@ -1,0 +1,19 @@
+{% if btn.class == 'primary' and btn.type == 'button' %}
+	<button type="button" class="bt bt-primary">{{btn.text}}</button>
+{% elif btn.class == 'secondary' and btn.type == 'button' %}
+	<button type="button" class="bt bt-secondary">{{btn.text}}</button>
+{% elif btn.class == 'info' and btn.type == 'button' %}
+	<button type="button" class="bt bt-info">{{btn.text}}</button>
+{% elif btn.class == 'primary' and btn.type == 'link' %}
+	<a href='#' type="button" class="bt bt-primary">{{btn.text}}</a>
+{% elif btn.class == 'secondary' and btn.type == 'link' %}
+	<a href='#' class="bt bt-secondary">{{btn.text}}</a>
+{% elif btn.class == 'info' and btn.type == 'link' %}
+	<a href='#' class="bt bt-info">{{btn.text}}</a>
+{% endif %}
+{# Вставка в кнопку #}
+{# {% set btn = {
+	text: 'Next',
+	class: 'secondary'
+} %}
+{% include 'html/components/_btn.njk' %} #}

@@ -1,0 +1,20 @@
+@use "../vars/vars" as *;
+@use "../mixins/resources" as *;
+.title {
+	font-weight: 600;
+	line-height: 100%;
+	color: inherit;
+	@include adaptiv-value-to(font-size, 120, 48, $mobile);
+	&--md {
+		letter-spacing: -0.02em;
+		@include adaptiv-value-to(font-size, 96, 48, $mobile);
+	}
+	&--sm {
+		line-height: 94%;
+		letter-spacing: -0.02em;
+		@include adaptiv-value-to(font-size, 88, 40, $mobile);
+	}
+	span {
+		color: $green;
+	}
+}

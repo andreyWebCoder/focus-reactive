@@ -1,0 +1,38 @@
+@use "../vars/vars" as *;
+@use "sass:map";
+@use "../mixins/breakpoints" as *;
+
+// =============== Отступы справа и слева контейнера ============
+$gap: (
+	pc: 40px,
+	tablet: 40px,
+	mobile: 24px,
+	mobileSm: 24px
+);
+
+// Переменная $maxWidthContainer находиться в глобальних настройках
+$container-width: calc((#{$maxWidthContainer}px) + (map.get($gap, pc) * 2));
+
+.container {
+	width: 100%;
+	max-width: $container-width;
+	margin: 0 auto;
+	padding-left: map.get($gap, pc);
+	padding-right: map.get($gap, pc);
+
+	// @include breakpoint($tablet) {
+	// 	padding-left: map.get($gap, tablet);
+	// 	padding-right: map.get($gap, tablet);
+	// }
+	@include breakpoint($mobile) {
+		padding-left: map.get($gap, mobile);
+		padding-right: map.get($gap, mobile);
+	}
+	// @include breakpoint($mobileSmall) {
+	// 	padding-left: map.get($gap, mobileSm);
+	// 	padding-right: map.get($gap, mobileSm);
+	// }
+}
+.container-fluid {
+	max-width: unset;
+}

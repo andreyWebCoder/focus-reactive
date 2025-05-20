@@ -1,0 +1,6 @@
+@@include('files/functions.js', {})
+@@include('files/menu.js', {})
+@@include('files/script.js', {})
+@@include('files/sliders.js', {})
+@@include('files/animate.js', {})
+@@include('files/rating.js', {})

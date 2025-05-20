@@ -1,0 +1,72 @@
+//<ПЕРЕМЕННЫЕ>========================================================
+:root {
+	--black: #000000;
+	--white: #ffffff;
+	--digital-green: #00e56d;
+	--gray-700: #3b3b3b;
+}
+//<Шрифт по умолчанию>
+$fontFamily: "InterDisplay", sans-serif;
+$fontSize: 16px;
+$main-lh: 120%;
+//</Шрифт по умолчанию>
+
+$minWidth: 320;
+$maxWidth: 1920;
+$maxWidthContainer: 1360;
+// Брейк-поинты
+$pc: $maxWidthContainer; // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
+$tablet: 991.98; // Планшеты, некоторые телефоны в горизонтальном положении
+$mobile: 767.98; // Телефоны L
+$mobileSmall: 479.98; // Телефоны S
+$mobileSmallX: 359.98; // Телефоны SX
+//Цвета
+$black: var(--black);
+$gray-100: #f5f4f9;
+$gray-200: #eeeeee;
+$gray-300: #d9d9d9; //new
+$gray-400: rgba(206, 208, 218, 0.5); //new
+$gray-500: #858585; //new
+$gray-600: #706f6f;
+$gray-700: var(--gray-700);
+$gray-800: #4c4c4c; //new
+$gray-900: #212229;
+$white: var(--white);
+
+$blue: #5d94cf; //new
+
+$green: var(--digital-green); //new
+
+$red: #ff5216; //new
+
+$primary: $green;
+$secondary: $blue;
+$danger: $red;
+$success: $green;
+$warning: #ffc700;
+$info: $gray-500;
+//Цвета
+
+$mainColor: $white;
+$bg-body: $black;
+
+// Глобальние переменные для кнопок и полей ввода
+$bt-ipt-height: 44px;
+$bt-ipt-padding-y: 16px;
+$bt-ipt-padding-x: 24px;
+$bt-ipt-rounded: 999px;
+
+$bt-ipt-height-lg: 62px;
+$bt-ipt-padding-y-lg: 8px;
+$bt-ipt-padding-x-lg: 50px;
+$bt-ipt-rounded-lg: 40px;
+
+$bt-ipt-height-sm: 39px;
+$bt-ipt-padding-y-sm: 5px;
+$bt-ipt-padding-x-sm: 35px;
+$bt-ipt-rounded-sm: 40px;
+
+$ipts-bg: $blue;
+// Глобальние переменные для кнопок и полей ввода
+
+//</ПЕРЕМЕННЫЕ>======================================================

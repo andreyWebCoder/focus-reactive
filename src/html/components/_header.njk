@@ -1,0 +1,19 @@
+<header class="header">
+	<div class="header__container container">
+		<div class="header__body">
+			<a href="#" class="header__logo">
+				<img src="@img/logo.svg" alt="logo focus reactive">
+			</a>
+			{% include 'html/components/nav/nav.njk' %}
+			<div class="header__left">
+				{% set btn = {
+					text: 'Contact Us',
+					class: 'primary',
+					type: 'button'
+				} %}
+				{% include 'html/components/_btn.njk' %}
+			</div>
+			<button type="button" class="bt-burger" aria-label="button open mobile menu"></button>
+		</div>
+	</div>
+</header>

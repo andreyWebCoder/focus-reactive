@@ -1,0 +1,342 @@
+@use "../vars/vars" as *;
+@use "../mixins/breakpoints" as *;
+// ===== Кнопки =====
+// ===== Переменние (глобальние настройки в _vars.scss) =====
+$bt-height: $bt-ipt-height;
+$bt-padding-y: $bt-ipt-padding-y;
+$bt-padding-x: $bt-ipt-padding-x;
+$bt-font-size: 16px;
+$bt-font-weight: 500;
+$bt-line-height: $main-lh;
+$bt-border: 1px solid transparent;
+
+// large
+$bt-height-lg: $bt-ipt-height-lg;
+$bt-padding-y-lg: $bt-ipt-padding-y-lg;
+$bt-padding-x-lg: $bt-ipt-padding-x-lg;
+$bt-font-size-lg: 24px;
+// small
+$bt-height-sm: $bt-ipt-height-sm;
+$bt-padding-y-sm: $bt-ipt-padding-y-sm;
+$bt-padding-x-sm: $bt-ipt-padding-x-sm;
+$bt-font-size-sm: 16px;
+$bt-font-weight-sm: 400;
+
+$bt-color: $black;
+
+$bt-link-fw: 400;
+$bt-link-fz: 16px;
+$bt-link-color: $primary;
+$bt-link-hover-color: rgba($primary, 0.75);
+
+$bt-rounded: $bt-ipt-rounded;
+$bt-rounded-sm: $bt-ipt-rounded-sm;
+$bt-rounded-lg: $bt-ipt-rounded-lg;
+
+$bt-transition: opacity 0.3s ease-out;
+// ===== Butoons class bt=====
+.bt {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	grid-gap: 20px;
+	font-size: $bt-font-size;
+	line-height: $bt-line-height;
+	font-weight: $bt-font-weight;
+	height: $bt-height;
+	padding: $bt-padding-y $bt-padding-x;
+	border: $bt-border;
+	border-radius: $bt-rounded;
+	transition: $bt-transition;
+	color: $bt-color;
+	text-decoration: none;
+	cursor: pointer;
+	&[class*="ic-"] {
+		&:before {
+			font-size: 24px;
+			flex: 0 0 24px;
+			line-height: 1;
+		}
+	}
+
+	&.i-right {
+		flex-direction: row-reverse;
+	}
+	img {
+		width: 20px;
+		height: 20px;
+	}
+	&.disabled,
+	&:disabled {
+		background-color: $gray-400;
+		pointer-events: none !important;
+		border-color: transparent;
+		color: $white;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $gray-400;
+				pointer-events: none !important;
+			}
+		}
+	}
+}
+// ===== Размеры кнопок =====
+.bt-lg {
+	height: $bt-height-lg;
+	padding: $bt-padding-y-lg $bt-padding-x-lg;
+	border-radius: $bt-rounded-lg;
+	font-size: $bt-font-size-lg;
+	gap: 15px;
+	&[class*="ic-"] {
+		&:before {
+			font-size: 46px;
+			flex: 0 0 46px;
+		}
+	}
+}
+.bt-sm {
+	height: $bt-height-sm;
+	padding: $bt-padding-y-sm $bt-padding-x-sm;
+	border-radius: $bt-rounded-sm;
+	font-size: $bt-font-size-sm;
+	font-weight: $bt-font-weight-sm;
+	gap: 10px;
+	&[class*="ic-"] {
+		&:before {
+			font-size: 18px;
+		}
+	}
+}
+
+// ===== Цвета кнопок по предназначению =====
+.bt-primary {
+	background: $primary;
+	border-width: 0;
+	@media (any-hover: hover) {
+		&:hover {
+			opacity: 0.75;
+		}
+	}
+	&:active {
+		opacity: 0.85;
+	}
+}
+
+.bt-secondary {
+	background: $secondary;
+	color: $bt-color;
+	border-width: 0;
+	@media (any-hover: hover) {
+		&:hover {
+			border-radius: 5px;
+		}
+	}
+}
+
+.bt-info {
+	background: $blue;
+	@media (any-hover: hover) {
+		&:hover {
+			background: rgba($blue, 0.15);
+		}
+	}
+}
+
+.bt-light {
+	background: $gray-100;
+	color: $black;
+	@media (any-hover: hover) {
+		&:hover {
+			background: rgba($black, 0.15);
+		}
+	}
+}
+
+.bt-success {
+	background: $success;
+	color: $white;
+	@media (any-hover: hover) {
+		&:hover {
+			background: rgba($success, 0.85);
+		}
+	}
+}
+
+// ===== Цвета кнопок с оконтовкой по предназначению =====
+.bt-outline-primary {
+	background: $white;
+	border-color: $primary;
+	color: $primary;
+
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: $green;
+		}
+	}
+	&:active {
+		box-shadow: inset 0px 0px 0px 2px rgba($primary, 1);
+		background-color: $white;
+	}
+}
+
+.bt-outline-secondary {
+	background: transparent;
+	border-color: rgba($black, 0.8);
+	color: $black;
+
+	@media (any-hover: hover) {
+		&:hover {
+			border-color: gray;
+		}
+	}
+}
+//  ===== Кнопка ссилка =====
+.bt-link {
+	color: $bt-link-color;
+	font-size: $bt-link-fz;
+	font-weight: $bt-link-fw;
+	position: relative;
+	background: transparent;
+	padding: 0;
+	border: none;
+	text-transform: none;
+	height: auto;
+	line-height: 1;
+	cursor: pointer;
+	gap: 10px;
+	span {
+		text-decoration: underline;
+	}
+	&.bt-lg {
+		font-size: 20px;
+	}
+	&.bt-sm {
+		font-size: 16px;
+		line-height: 120%;
+		text-decoration: underline;
+		font-weight: 400;
+		&[class*="ic-"] {
+			text-decoration: none;
+		}
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			color: $bt-link-hover-color;
+		}
+	}
+}
+// ===== Кнопка для закрития, чего то =====
+.bt-close {
+	--size: 30px;
+	height: var(--size);
+	font-size: var(--size);
+	padding: 0;
+	line-height: 1;
+	cursor: pointer;
+	transition: opacity 0.25s ease 0s;
+	@media (any-hover: hover) {
+		&:hover {
+			opacity: 0.85;
+		}
+	}
+}
+// ===== Кастомнаие кнопки =====
+
+.bt-icon {
+	--size-icon: 14px;
+	--size: 40px;
+	color: $white;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: var(--size-icon);
+	text-transform: uppercase;
+	width: var(--size);
+	height: var(--size);
+	background: transparent;
+	padding: 0;
+	position: relative;
+	border: 1px solid $gray-700;
+	border-radius: 50%;
+	cursor: pointer;
+	transition:
+		background 0.2s ease-out 0s,
+		color 0.2s ease-out 0s,
+		opacity 0.2s ease-out 0s;
+	@media (any-hover: hover) {
+		&:hover {
+			opacity: 0.85;
+		}
+	}
+	.active {
+		&::before {
+			color: $primary;
+		}
+	}
+	&:disabled,
+	.disabled {
+		background-color: #f4f4f4;
+		pointer-events: none;
+		color: #d0d0d0;
+	}
+	// &.bt-prev {
+	// 	&:before {
+	// 		transform: rotate(-180deg);
+	// 	}
+	// }
+	// &.bt-search {
+	// 	font-size: 30px;
+	// 	border-radius: 5px;
+	// 	background: $gray-100;
+	// }
+	// // bt-icon--lg
+	// &--lg {
+	// 	--size-icon: 45px;
+	// 	--size: 45px;
+	// 	@media (any-hover: hover) {
+	// 		&:hover {
+	// 			color: $primary;
+	// 		}
+	// 	}
+	// }
+	// // bt-icon--md
+	// &--md {
+	// 	--size-icon: 30px;
+	// 	--size: 40px;
+	// }
+	// // bt-icon--sm
+	// &--sm {
+	// 	--size-icon: 20px;
+	// 	--size: 24px;
+	// }
+}
+.bt-burger {
+	display: none;
+	@include breakpoint($mobile) {
+		width: 48px;
+		height: 48px;
+		gap: 6px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		position: relative;
+		z-index: 4;
+		&::before,
+		&::after {
+			content: "";
+			width: 100%;
+			height: 2px;
+			background-color: $white;
+			transition: transform 0.3s ease 0s;
+		}
+
+		&.active {
+			&::before {
+				transform: translateY(4px) rotate(-45deg);
+			}
+			&::after {
+				transform: translateY(-4px) rotate(45deg);
+			}
+		}
+	}
+}

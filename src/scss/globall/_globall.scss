@@ -1,0 +1,35 @@
+@use "../vars/vars" as vars;
+@use "null";
+@use "container";
+@use "animate";
+
+body {
+	font-family: vars.$fontFamily;
+	font-size: vars.$fontSize;
+	background-color: vars.$bg-body;
+	color: vars.$mainColor;
+	line-height: vars.$main-lh;
+	// Скролл заблокирован
+	&.lock {
+		overflow: hidden;
+		touch-action: none;
+	}
+	// Сайт загружен
+	&.loaded {
+	}
+}
+// Оболочка ============================================================================================================================================================================================================================================================================================================================================================================================================================================
+.wrapper {
+	min-height: 100dvh;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	// Прижимаем footer
+	> main {
+		flex: 1 1 auto;
+	}
+	// Фикс для слайдеров
+	> * {
+		min-width: 0;
+	}
+}
