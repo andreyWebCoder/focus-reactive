@@ -1,0 +1,52 @@
+<section class="work pb-md pt-md">
+	<div class="work__container container">
+		<div class="work__body">
+			<h1 class="work__title title title--md">
+				Featured work
+			</h1>
+			{% set cards = [
+				{
+					name: 'NotSoApe',
+					badge: 'CMS',
+					img: "@img/work-2.jpg",
+					altImg: "image work whith iphone",
+					class: ""
+				}, {
+					name: 'EasyPark',
+					badge: 'Ecommerce',
+					img: "@img/work-1.jpg",
+					altImg: "image work whith note book",
+					class: "open"
+				}, {
+					name: 'GitNation',
+					badge: 'Mobile App',
+					img: "@img/work-3.jpg",
+					altImg: "image work whith iphone",
+					class: ""
+				}, {
+					name: 'Secret Escapes',
+					badge: 'Ecommerce',
+					img: "@img/work-4.jpg",
+					altImg: "image work whith tablet",
+					class: ""
+				}, {
+					name: 'Caleffi',
+					badge: 'Web Design',
+					img: "@img/work-5.jpg",
+					altImg: "image work whith note book",
+					class: ""
+				}
+			] %}
+			<div class="work__wrap">
+				{% for card in cards %}
+					{% include 'html/components/_project.njk' %}
+				{% endfor %}
+			</div>
+			<div class="work__wrap mob">
+				{% for card in cards %}
+					{% include 'html/components/_project-mob.njk' %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>

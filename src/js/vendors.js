@@ -1,5 +1,2 @@
-@@include('libs/swiper-bundle.min.js', {})
-@@include('libs/splide.min.js', {})
-@@include('libs/flatpickr.min.js', {})
 @@include('libs/gsap.min.js', {})
 @@include('libs/ScrollTrigger.min.js', {})

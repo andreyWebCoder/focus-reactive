@@ -1,0 +1,37 @@
+<div class="project project--animate {{card.class | default('')}}" >
+	<div class="project__card">
+		<div class="project__left">
+			<div class="project__col">
+				<h3 class="project__name">{{card.name}}</h3>
+				<ul class="project__details details">
+					<li class="details__item">
+						<span class="details__title">Industry</span>
+						<span class="details__text">IT Services & Consultinig</span>
+					</li>
+					<li class="details__item">
+						<span class="details__title">Technical Stack</span>
+						<span class="details__text">Storyblok <br> Next.JS <br> Vercel</span>
+					</li>
+					<li class="details__item">
+						<span class="details__title">Scope of Work</span>
+						<span class="details__text">Design <br> Website development <br> Maintenance</span>
+					</li>
+				</ul>
+			</div>
+			<div class="project__btn">
+				{% set btn = {
+				text: 'View Case',
+				class: 'info-sm',
+				type: 'link'
+			} %}
+				{% include 'html/components/_btn.njk' %}
+			</div>
+		</div>
+		<div class="project__right">
+			<div class="ibg">
+				<img src="{{card.img}}" alt="{{card.altImg}}">
+			</div>
+			<span class="badge">{{card.badge}}</span>
+		</div>
+	</div>
+</div>

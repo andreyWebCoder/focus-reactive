@@ -1,14 +1,16 @@
-@use "../vars/vars" as vars;
+@use "../vars/vars" as *;
+@use "../mixins/breakpoints" as *;
+@use "../mixins/resources" as *;
 @use "null";
 @use "container";
 @use "animate";
 
 body {
-	font-family: vars.$fontFamily;
-	font-size: vars.$fontSize;
-	background-color: vars.$bg-body;
-	color: vars.$mainColor;
-	line-height: vars.$main-lh;
+	font-family: $fontFamily;
+	font-size: $fontSize;
+	background-color: $bg-body;
+	color: $mainColor;
+	line-height: $main-lh;
 	// Скролл заблокирован
 	&.lock {
 		overflow: hidden;
@@ -32,4 +34,24 @@ body {
 	> * {
 		min-width: 0;
 	}
+}
+
+// Стили для настройки отступпов секций
+.pt {
+	padding-top: 80px;
+	@include breakpoint($mobile) {
+		padding-top: 40px;
+	}
+}
+.pb {
+	padding-bottom: 80px;
+	@include breakpoint($mobile) {
+		padding-bottom: 40px;
+	}
+}
+.pt-md {
+	padding-top: 40px;
+}
+.pb-md {
+	padding-bottom: 40px;
 }

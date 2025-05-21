@@ -19,7 +19,7 @@ $bt-font-size-lg: 24px;
 $bt-height-sm: $bt-ipt-height-sm;
 $bt-padding-y-sm: $bt-ipt-padding-y-sm;
 $bt-padding-x-sm: $bt-ipt-padding-x-sm;
-$bt-font-size-sm: 16px;
+$bt-font-size-sm: 14px;
 $bt-font-weight-sm: 400;
 
 $bt-color: $black;
@@ -33,7 +33,9 @@ $bt-rounded: $bt-ipt-rounded;
 $bt-rounded-sm: $bt-ipt-rounded-sm;
 $bt-rounded-lg: $bt-ipt-rounded-lg;
 
-$bt-transition: opacity 0.3s ease-out;
+$bt-transition:
+	opacity 0.3s ease-out,
+	background 0.3s ease-out;
 // ===== Butoons class bt=====
 .bt {
 	display: inline-flex;
@@ -134,10 +136,28 @@ $bt-transition: opacity 0.3s ease-out;
 }
 
 .bt-info {
-	background: $blue;
+	background: rgba($white, 0.16);
+	backdrop-filter: blur(30px);
+	-webkit-backdrop-filter: blur(30px);
+	color: $white;
+	position: relative;
+	&::before {
+		content: "";
+		width: 0;
+		height: 0;
+		border-top: 6px solid $primary;
+		border-left: 6px solid transparent;
+		position: absolute;
+		top: 0;
+		right: 0;
+		transition: transform 0.3s ease 0s;
+	}
 	@media (any-hover: hover) {
 		&:hover {
-			background: rgba($blue, 0.15);
+			background: rgba($white, 0.25);
+			&::before {
+				transform: scale(1.2) translate(2px, -2px);
+			}
 		}
 	}
 }
@@ -260,17 +280,13 @@ $bt-transition: opacity 0.3s ease-out;
 	border-radius: 50%;
 	cursor: pointer;
 	transition:
-		background 0.2s ease-out 0s,
+		transform 0.2s ease-out 0s,
 		color 0.2s ease-out 0s,
 		opacity 0.2s ease-out 0s;
 	@media (any-hover: hover) {
 		&:hover {
-			opacity: 0.85;
-		}
-	}
-	.active {
-		&::before {
-			color: $primary;
+			opacity: 0.75;
+			transform: scale(1.1);
 		}
 	}
 	&:disabled,

@@ -1,0 +1,194 @@
+@use "../vars/vars" as *;
+@use "../mixins/breakpoints" as *;
+@use "../mixins/resources" as *;
+.project {
+	padding: 20px 0;
+	border-top: 1px solid $gray-800;
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 0.8s ease 0s;
+
+	&.open {
+		grid-template-rows: 1fr;
+		.ibg {
+			--pb: 50.9%;
+		}
+		.project__name {
+			color: $white;
+			min-height: unset;
+		}
+		.details__text {
+			color: $white;
+		}
+	}
+
+	@include breakpoint($mobile) {
+		margin: 0 -24px;
+		display: block;
+	}
+	&:last-child {
+		border-bottom: 1px solid $gray-800;
+	}
+
+	// .project__card
+
+	&__card {
+		display: flex;
+		gap: 24px;
+		min-height: 56px;
+		overflow: hidden;
+		@include breakpoint($mobile) {
+			flex-direction: column;
+			gap: 16px;
+			padding: 0 24px;
+			min-height: unset;
+		}
+	}
+
+	//.project__top
+
+	&__top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
+	}
+	// .project__left
+
+	&__left {
+		position: relative;
+		flex: 1 1 436px;
+		padding: 8px 0;
+		display: flex;
+		justify-content: space-between;
+
+		@include breakpoint($mobile) {
+			flex: 0 0 auto;
+		}
+	}
+
+	// .project__btn
+	&__btn {
+		align-self: flex-start;
+		position: relative;
+		z-index: 1;
+		flex: 1 0 auto;
+		@include adaptiv-value-to(top, 230, 120, $mobile);
+
+		.bt {
+			transform: translateY(-50%);
+		}
+	}
+
+	// .project__col
+
+	&__col {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		justify-content: space-between;
+		flex: 0 0 calc(100% + 24px - 45px);
+	}
+
+	// .project__name
+
+	&__name {
+		font-weight: 500;
+		font-size: 48px;
+		line-height: 100%;
+		text-transform: capitalize;
+		color: $gray-800;
+		min-height: 56px;
+		transition:
+			color 0.3s ease 0s,
+			min-height 0.4s ease 0s;
+		@include adaptiv-value-to(font-size, 48, 24, $mobile);
+		@include breakpoint($mobile) {
+			color: $white;
+			min-height: unset;
+		}
+	}
+
+	// .project__details
+
+	&__details {
+	}
+
+	// .project__right
+
+	&__right {
+		flex: 0 1 900px;
+		overflow: hidden;
+		border-radius: 24px;
+		position: relative;
+		@include breakpoint($mobile) {
+			flex: 0 0 auto;
+			border-radius: 0;
+		}
+		.ibg {
+			--pb: 56px;
+			transition: padding 0.8s ease 0s;
+			overflow: hidden;
+			border: 1px solid $gray-900;
+			border-radius: 24px;
+			display: block;
+			@include breakpoint($mobile) {
+				--pb: 56%;
+				border-radius: 12px;
+			}
+			img {
+				border-radius: 24px;
+				@include breakpoint($mobile) {
+					border-radius: 12px;
+				}
+			}
+		}
+		.badge {
+			position: absolute;
+			z-index: 2;
+			top: 8px;
+			left: 8px;
+		}
+	}
+}
+.details {
+	display: grid;
+	@include adaptiv-value-to(gap, 40, 20, $mobile);
+	@include breakpoint($mobile) {
+		grid-template-columns: repeat(3, 1fr);
+		width: 100%;
+	}
+	// .details__item
+
+	&__item {
+		display: grid;
+		gap: 16px;
+		@include breakpoint($mobile) {
+			gap: 6px;
+			align-content: start;
+		}
+	}
+
+	// .details__title
+
+	&__title {
+		color: $gray-600;
+		font-weight: 500;
+		line-height: 120%;
+		@include adaptiv-value-to(font-size, 14, 8, $mobile);
+	}
+
+	// .details__text
+
+	&__text {
+		font-weight: 500;
+		line-height: 120%;
+		color: $gray-800;
+		transition: color 0.3s ease 0s;
+		@include adaptiv-value-to(font-size, 24, 10, $mobile);
+		@include breakpoint($mobile) {
+			font-weight: 400;
+			color: $white;
+		}
+	}
+}

@@ -1,0 +1,21 @@
+@use "../vars/vars" as *;
+.badge {
+	font-weight: 500;
+	line-height: 100%;
+	display: inline-flex;
+	align-items: center;
+	padding: 12px 27px;
+	background: rgba($black, 0.4);
+	backdrop-filter: blur(24px);
+	-webkit-backdrop-filter: blur(24px);
+	border-radius: 999px;
+	color: $white;
+	&--sm {
+		font-size: 10px;
+		padding: 8px 14px;
+	}
+	&--light {
+		font-size: 10px;
+		background: rgba($white, 0.16);
+	}
+}

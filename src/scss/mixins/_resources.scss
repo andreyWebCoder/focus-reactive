@@ -47,4 +47,7 @@
 			#{$minSize + px} + #{$addSize} * (((100vw - #{$minWidth + px})) / ((#{$maxWidth - $minWidth})))
 		);
 	}
+	@media (min-width: #{$maxWidthContainer + px}) {
+		#{$property}: $startSize + px;
+	}
 }

@@ -9,6 +9,7 @@
 	display: flex;
 	position: relative;
 	overflow: hidden;
+	transition: min-height 0.2s linear;
 	// .fullscreen__bg
 
 	&__bg {
@@ -25,7 +26,7 @@
 			position: absolute;
 			top: 0;
 			left: 0;
-			background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, $black 100%);
+			background: linear-gradient(180deg, rgba(221, 184, 184, 0) 0%, $black 100%);
 			z-index: 1;
 		}
 	}
@@ -41,7 +42,6 @@
 
 	&__body {
 		flex: 1 1 auto;
-		padding-bottom: 40px;
 		gap: 24px;
 		display: flex;
 		justify-content: center;
@@ -58,6 +58,8 @@
 		@include adaptiv-value-to(max-width, 695, 375, $mobile);
 		@include breakpoint($mobile) {
 			margin-left: 0;
+			flex-direction: column;
+			justify-content: center;
 		}
 	}
 
