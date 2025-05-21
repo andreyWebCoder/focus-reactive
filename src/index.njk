@@ -2,32 +2,15 @@
 <html lang="en">
 	{% set title = 'Home' %}
 	{% include 'html/_head.njk' %}
-
 	<body>
 		<div class="wrapper">
 			{% include 'html/components/_header.njk' %}
 			<main class="page">
-
-				{# <h2>List</h2> #}
-				{# {% set names = [
-					'VAsia',
-					'Dima',
-					'Olia',
-					'julia',
-					'Kolia',
-					'xxx',
-					'dlsgkldkgls'
-				] %} #}
-				{# <ul>
-					{% for name in names %}
-						<li>{{name}}</li>
-					{% endfor %}
-				</ul> #}
 				{% include 'html/sections/_hero.njk' %}
+				{% include 'html/sections/_anim-page.njk' %}
 				{% include 'html/sections/_work.njk' %}
 			</main>
 		</div>
-
 		{% include 'html/_js.njk' %}
 	</body>
 

@@ -117,3 +117,62 @@
 		}
 	}
 }
+.anim {
+	width: 100%;
+	// .anim__body
+
+	&__body {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	// .anim__titles
+
+	&__titles {
+		text-align: center;
+		overflow: hidden;
+		position: relative;
+		margin: 64px 0;
+		&.active {
+			.anim__title {
+				&:first-child {
+					opacity: 0;
+					transform: translateY(150%);
+				}
+				&:last-child {
+					opacity: 1;
+				}
+			}
+			.anim__title--anim {
+				opacity: 1;
+				transform: translateX(-50%) scale(1);
+			}
+		}
+	}
+
+	// .anim__title
+
+	&__title {
+		--color: #3f3f3f;
+		color: var(--color);
+		transition: all 0.5s ease 0s;
+		&--anim {
+			width: 100%;
+			position: absolute;
+			left: 50%;
+			top: 0;
+			height: 100%;
+			transform: translateX(-50%) scale(0.5);
+			opacity: 0;
+		}
+	}
+
+	// .anim__cards
+
+	&__cards {
+		margin: 0 auto;
+		display: flex;
+		gap: 64px;
+	}
+}

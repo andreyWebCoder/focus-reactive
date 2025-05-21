@@ -1,0 +1,38 @@
+<section class="fullscreen pt-md pb-md page--anim">
+	<div class="fullscreen__container container">
+		<div class="anim">
+			<div class="anim__body">
+				<div class="anim__titles">
+					<h2 class="anim__title title">Integrate anything</h2>
+					<h2 class="anim__title title anim__title--anim">
+						<span>ship everywhere</span>
+					</h2>
+				</div>
+				<div class="anim__cards">
+					{% set cardsSm = [
+						{
+							text1: 'CRM',
+							img1: "@img/icons/CRM.svg",
+							text2: 'Ecommerce',
+							img2: "@img/icons/ecommerce.svg"
+						}, {
+							text1: 'Analytics',
+							img1: "@img/icons/analytics.svg",
+							text2: 'Aplications',
+							img2: "@img/icons/aplications.svg"
+						}, {
+							text1: 'Database',
+							img1: "@img/icons/database.svg",
+							text2: 'Multi-Tenant',
+							img2: "@img/icons/multi-tenant.svg"
+						}
+					] %}
+					{% for card in cardsSm %}
+						{% include 'html/components/cards/_card-sm.njk' %}
+					{% endfor %}
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>

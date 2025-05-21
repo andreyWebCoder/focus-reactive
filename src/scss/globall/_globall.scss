@@ -38,20 +38,26 @@ body {
 
 // Стили для настройки отступпов секций
 .pt {
-	padding-top: 80px;
+	padding-top: 80px !important;
 	@include breakpoint($mobile) {
-		padding-top: 40px;
+		padding-top: 40px !important;
 	}
 }
 .pb {
-	padding-bottom: 80px;
+	padding-bottom: 80px !important;
 	@include breakpoint($mobile) {
-		padding-bottom: 40px;
+		padding-bottom: 40px !important;
 	}
 }
 .pt-md {
-	padding-top: 40px;
+	padding-top: 40px !important;
 }
 .pb-md {
-	padding-bottom: 40px;
+	padding-bottom: 40px !important;
+}
+.pt-0 {
+	padding-top: 0 !important;
+}
+.pb-0 {
+	padding-bottom: 0 !important;
 }
