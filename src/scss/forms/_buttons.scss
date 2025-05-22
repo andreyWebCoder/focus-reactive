@@ -53,30 +53,16 @@ $bt-transition:
 	color: $bt-color;
 	text-decoration: none;
 	cursor: pointer;
-	&[class*="ic-"] {
-		&:before {
-			font-size: 24px;
-			flex: 0 0 24px;
-			line-height: 1;
-		}
-	}
 
-	&.i-right {
-		flex-direction: row-reverse;
-	}
-	img {
-		width: 20px;
-		height: 20px;
-	}
 	&.disabled,
 	&:disabled {
-		background-color: $gray-400;
+		background-color: $gray-600;
 		pointer-events: none !important;
 		border-color: transparent;
 		color: $white;
 		@media (any-hover: hover) {
 			&:hover {
-				background-color: $gray-400;
+				background-color: $gray-600;
 				pointer-events: none !important;
 			}
 		}
@@ -88,13 +74,6 @@ $bt-transition:
 	padding: $bt-padding-y-lg $bt-padding-x-lg;
 	border-radius: $bt-rounded-lg;
 	font-size: $bt-font-size-lg;
-	gap: 15px;
-	&[class*="ic-"] {
-		&:before {
-			font-size: 46px;
-			flex: 0 0 46px;
-		}
-	}
 }
 .bt-sm {
 	height: $bt-height-sm;
@@ -102,12 +81,6 @@ $bt-transition:
 	border-radius: $bt-rounded-sm;
 	font-size: $bt-font-size-sm;
 	font-weight: $bt-font-weight-sm;
-	gap: 10px;
-	&[class*="ic-"] {
-		&:before {
-			font-size: 18px;
-		}
-	}
 }
 
 // ===== Цвета кнопок по предназначению =====
@@ -121,17 +94,6 @@ $bt-transition:
 	}
 	&:active {
 		opacity: 0.85;
-	}
-}
-
-.bt-secondary {
-	background: $secondary;
-	color: $bt-color;
-	border-width: 0;
-	@media (any-hover: hover) {
-		&:hover {
-			border-radius: 5px;
-		}
 	}
 }
 
@@ -162,106 +124,7 @@ $bt-transition:
 	}
 }
 
-.bt-light {
-	background: $gray-100;
-	color: $black;
-	@media (any-hover: hover) {
-		&:hover {
-			background: rgba($black, 0.15);
-		}
-	}
-}
-
-.bt-success {
-	background: $success;
-	color: $white;
-	@media (any-hover: hover) {
-		&:hover {
-			background: rgba($success, 0.85);
-		}
-	}
-}
-
-// ===== Цвета кнопок с оконтовкой по предназначению =====
-.bt-outline-primary {
-	background: $white;
-	border-color: $primary;
-	color: $primary;
-
-	@media (any-hover: hover) {
-		&:hover {
-			background-color: $green;
-		}
-	}
-	&:active {
-		box-shadow: inset 0px 0px 0px 2px rgba($primary, 1);
-		background-color: $white;
-	}
-}
-
-.bt-outline-secondary {
-	background: transparent;
-	border-color: rgba($black, 0.8);
-	color: $black;
-
-	@media (any-hover: hover) {
-		&:hover {
-			border-color: gray;
-		}
-	}
-}
-//  ===== Кнопка ссилка =====
-.bt-link {
-	color: $bt-link-color;
-	font-size: $bt-link-fz;
-	font-weight: $bt-link-fw;
-	position: relative;
-	background: transparent;
-	padding: 0;
-	border: none;
-	text-transform: none;
-	height: auto;
-	line-height: 1;
-	cursor: pointer;
-	gap: 10px;
-	span {
-		text-decoration: underline;
-	}
-	&.bt-lg {
-		font-size: 20px;
-	}
-	&.bt-sm {
-		font-size: 16px;
-		line-height: 120%;
-		text-decoration: underline;
-		font-weight: 400;
-		&[class*="ic-"] {
-			text-decoration: none;
-		}
-	}
-	@media (any-hover: hover) {
-		&:hover {
-			color: $bt-link-hover-color;
-		}
-	}
-}
-// ===== Кнопка для закрития, чего то =====
-.bt-close {
-	--size: 30px;
-	height: var(--size);
-	font-size: var(--size);
-	padding: 0;
-	line-height: 1;
-	cursor: pointer;
-	transition: opacity 0.25s ease 0s;
-	@media (any-hover: hover) {
-		&:hover {
-			opacity: 0.85;
-		}
-	}
-}
 // ===== Кастомнаие кнопки =====
-
 .bt-icon {
 	--size-icon: 14px;
 	--size: 40px;

@@ -10,35 +10,32 @@
 	z-index: 1;
 	// .anim-card__line
 	&__line {
-		height: 140px;
 		width: 1px;
 		background-color: $gray-800;
-	}
-	&:first-child {
-		.anim-card__line {
-			height: 140px;
-		}
+		@include adaptiv-value-to(height, 140, 64, $mobile);
 	}
 	&:nth-child(2) {
 		.anim-card__line {
-			height: 205px;
+			@include adaptiv-value-to(height, 205, 84, $mobile);
 		}
 	}
 	&:last-child {
 		.anim-card__line {
-			height: 270px;
+			@include adaptiv-value-to(height, 270, 104, $mobile);
 		}
 	}
 
 	// .anim-card__body
 
 	&__body {
-		width: 240px;
-		height: 240px;
 		position: relative;
 		overflow: hidden;
 		border: 1px solid $gray-800;
 		border-radius: 24px;
+		@include adaptiv-value-to(width, 240, 100, $mobile);
+		@include breakpoint($mobile) {
+			border-radius: 10px;
+		}
 		&.active {
 			.anim-card__item--bottom {
 				left: 50%;
@@ -48,7 +45,9 @@
 			}
 		}
 	}
-
+	&__body {
+		@include adaptiv-value-to(height, 240, 100, $mobile);
+	}
 	// .anim-card__item
 
 	&__item {
@@ -63,9 +62,11 @@
 		justify-content: center;
 		flex-direction: column;
 		gap: 24px;
-
 		background-color: $black;
 		transition: left 0.5s ease 0s;
+		@include breakpoint($mobile) {
+			gap: 10px;
+		}
 		&--bottom {
 			left: 150%;
 			z-index: 2;
@@ -77,7 +78,8 @@
 	&__icon {
 		img {
 			width: 120px;
-			height: 120px;
+			height: 100%;
+			@include adaptiv-value-to(width, 120, 50, $mobile);
 		}
 	}
 
@@ -88,5 +90,6 @@
 		font-size: 28px;
 		line-height: 110%;
 		text-align: center;
+		@include adaptiv-value-to(font-size, 28, 12, $mobile);
 	}
 }
