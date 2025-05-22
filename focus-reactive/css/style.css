@@ -971,7 +971,7 @@ body.lock {
 .nav__link {
   position: relative;
   font-weight: 500;
-  transition: opacity 0.3s ease 0s;
+  transition: opacity 0.3s ease 0s, color 0.3s ease 0s;
 }
 .nav__link::before {
   content: "";
@@ -983,6 +983,9 @@ body.lock {
   bottom: 0;
   transform: scale(0);
   transition: transform 0.3s ease 0s;
+}
+.nav__link.active {
+  color: #00e56d;
 }
 @media (any-hover: hover) {
   .nav__link:hover {
