@@ -1,9 +1,10 @@
-<div class="project project--animate {{card.class | default('')}}" >
-	<div class="project__card">
+<div class="project {{card.class | default('')}}" data-js-project>
+	<a href="#" class="project__card">
+		<div class="project__cursor cursor" data-js-cursor>View Case</div>
 		<div class="project__left">
-			<div class="project__col">
+			<div class="project__col" >
 				<h3 class="project__name">{{card.name}}</h3>
-				<ul class="project__details details">
+				<ul class="project__details details" data-move-to=".project__right" data-breakpoint="768">
 					<li class="details__item">
 						<span class="details__title">Industry</span>
 						<span class="details__text">IT Services & Consultinig</span>
@@ -18,20 +19,12 @@
 					</li>
 				</ul>
 			</div>
-			<div class="project__btn">
-				{% set btn = {
-				text: 'View Case',
-				class: 'info-sm',
-				type: 'link'
-			} %}
-				{% include 'html/components/btns/_btn.njk' %}
-			</div>
 		</div>
 		<div class="project__right">
 			<div class="ibg">
 				<img src="{{card.img}}" alt="{{card.altImg}}">
 			</div>
-			<span class="badge">{{card.badge}}</span>
+			<span class="badge" data-move-to=".project__col" data-breakpoint="768">{{card.badge}}</span>
 		</div>
-	</div>
+	</a>
 </div>

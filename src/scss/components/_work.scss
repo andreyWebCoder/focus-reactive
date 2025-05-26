@@ -23,14 +23,5 @@
 	// .work__wrap
 
 	&__wrap {
-		@include breakpoint($mobile) {
-			display: none;
-		}
-		&.mob {
-			display: none;
-			@include breakpoint($mobile) {
-				display: block;
-			}
-		}
 	}
 }

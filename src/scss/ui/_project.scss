@@ -1,36 +1,44 @@
 @use "../vars/vars" as *;
 @use "../mixins/breakpoints" as *;
 @use "../mixins/resources" as *;
-.project {
-	padding: 20px 0;
-	border-top: 1px solid $gray-800;
-	display: grid;
-	grid-template-rows: 0fr;
-	transition: grid-template-rows 0.8s ease 0s;
 
+.project {
+	position: relative;
+	--animate-duration: 1s;
+	max-height: 96px;
+	overflow: hidden;
+	transition: all var(--animate-duration) ease 0s;
+	cursor: pointer;
 	&.open {
-		grid-template-rows: 1fr;
-		.project__card {
-			min-height: 460px;
+		@media screen and (min-width: 768px) {
+			.ibg {
+				--pb: 50.9%;
+				height: 100%;
+			}
+			.project__name {
+				color: $white;
+			}
+			.details__text {
+				color: $white;
+			}
 		}
-		.ibg {
-			--pb: 50.9%;
+		@media (any-hover: hover) {
+			&:hover {
+				.cursor {
+					transform: scale(1);
+					opacity: 1;
+				}
+			}
 		}
-		.project__name {
-			color: $white;
-			min-height: unset;
-		}
-		.details__text {
-			color: $white;
-		}
+	}
+	&:last-child {
+		border-bottom: 1px solid $gray-800;
 	}
 
 	@include breakpoint($mobile) {
 		margin: 0 -24px;
 		display: block;
-	}
-	&:last-child {
-		border-bottom: 1px solid $gray-800;
+		max-height: none;
 	}
 
 	// .project__card
@@ -38,60 +46,37 @@
 	&__card {
 		display: flex;
 		gap: 24px;
-		min-height: 56px;
-		overflow: hidden;
-		transition: min-height 0.8s ease 0s;
+		padding: 20px 0;
+		border-top: 1px solid $gray-800;
+		cursor: inherit;
 		@include breakpoint($mobile) {
 			flex-direction: column;
 			gap: 16px;
-			padding: 0 24px;
-			min-height: unset;
+			padding: 20px 24px;
 		}
 	}
 
-	//.project__top
-
-	&__top {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 8px;
-	}
 	// .project__left
 
 	&__left {
 		position: relative;
 		flex: 1 1 436px;
 		padding: 8px 0;
-		display: flex;
-		justify-content: space-between;
-
 		@include breakpoint($mobile) {
 			flex: 0 0 auto;
-		}
-	}
-
-	// .project__btn
-	&__btn {
-		align-self: flex-start;
-		position: relative;
-		z-index: 1;
-		flex: 1 0 auto;
-		@include adaptiv-value-to(top, 230, 120, $mobile);
-
-		.bt {
-			transform: translateY(-50%);
 		}
 	}
 
 	// .project__col
 
 	&__col {
-		display: flex;
-		flex-direction: column;
+		display: grid;
 		gap: 16px;
-		justify-content: space-between;
-		flex: 0 0 calc(100% + 24px - 45px);
+		@include breakpoint($mobile) {
+			flex: 1 1 auto;
+			grid-template-columns: 1fr auto;
+			justify-items: space-between;
+		}
 	}
 
 	// .project__name
@@ -113,25 +98,20 @@
 		}
 	}
 
-	// .project__details
-
-	&__details {
-	}
-
 	// .project__right
 
 	&__right {
 		flex: 0 1 900px;
-		overflow: hidden;
-		border-radius: 24px;
 		position: relative;
 		@include breakpoint($mobile) {
 			flex: 0 0 auto;
-			border-radius: 0;
 		}
 		.ibg {
 			--pb: 56px;
-			transition: padding 0.8s ease 0s;
+			height: 56px;
+			transition:
+				padding var(--animate-duration) ease 0s,
+				height var(--animate-duration) ease 0s;
 			overflow: hidden;
 			border: 1px solid $gray-900;
 			border-radius: 24px;
@@ -139,6 +119,7 @@
 			@include breakpoint($mobile) {
 				--pb: 56%;
 				border-radius: 12px;
+				height: auto;
 			}
 			img {
 				border-radius: 24px;
@@ -155,12 +136,52 @@
 		}
 	}
 }
+
+.cursor {
+	position: fixed;
+	z-index: 4;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	grid-gap: 20px;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 120%;
+	height: 42px;
+	padding: 16px 20px;
+	border-radius: 999px;
+	background: rgba($white, 0.16);
+	backdrop-filter: blur(30px);
+	-webkit-backdrop-filter: blur(30px);
+	color: $white;
+	pointer-events: none;
+	opacity: 0;
+	transform: scale(0);
+	transition:
+		opacity 0.3s ease 0s,
+		transform 0.3s ease 0s;
+	&::before {
+		content: "";
+		width: 0;
+		height: 0;
+		border-top: 6px solid $primary;
+		border-left: 6px solid transparent;
+		position: absolute;
+		top: 0;
+		right: 0;
+		transition: transform 0.3s ease 0s;
+	}
+	@include breakpoint($mobile) {
+		display: none;
+	}
+}
 .details {
 	display: grid;
 	@include adaptiv-value-to(gap, 40, 20, $mobile);
 	@include breakpoint($mobile) {
 		grid-template-columns: repeat(3, 1fr);
 		width: 100%;
+		margin-top: 16px;
 	}
 	// .details__item
 
