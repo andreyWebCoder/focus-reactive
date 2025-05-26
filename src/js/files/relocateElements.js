@@ -1,11 +1,16 @@
+// data-move-to="" data-breakpoint=""
 const movableElements = document.querySelectorAll("[data-move-to]");
-const originalParents = new Map();
+const originalData = new Map();
 
 // Сохраняем исходных родителей
-movableElements.forEach(el => {
-	originalParents.set(el, el.parentNode);
-});
-
+if (movableElements) {
+	movableElements.forEach(el => {
+		originalData.set(el, {
+			parent: el.parentNode,
+			nextSibling: el.nextElementSibling,
+		});
+	});
+}
 function relocateElements() {
 	const viewportWidth = window.innerWidth;
 
@@ -13,24 +18,31 @@ function relocateElements() {
 		const breakpoint = parseInt(el.dataset.breakpoint, 10);
 		const targetSelector = el.dataset.moveTo;
 
-		// Ищем целевой элемент начиная с ближайшего родителя (любого) к movableElement
+		// Ищем целевой контейнер относительно родителя
 		let parent = el.parentElement;
 		let target = null;
-
 		while (parent) {
 			target = parent.querySelector(targetSelector);
 			if (target) break;
 			parent = parent.parentElement;
 		}
 
-		const original = originalParents.get(el);
+		const original = originalData.get(el);
 
 		if (!target || !original) return;
 
 		if (viewportWidth <= breakpoint && el.parentNode !== target) {
 			target.appendChild(el);
-		} else if (viewportWidth > breakpoint && el.parentNode !== original) {
-			original.appendChild(el);
+		} else if (viewportWidth > breakpoint && el.parentNode !== original.parent) {
+			// Вставляем перед сохранённым соседом (если он всё ещё существует)
+			if (
+				original.nextSibling &&
+				original.nextSibling.parentNode === original.parent
+			) {
+				original.parent.insertBefore(el, original.nextSibling);
+			} else {
+				original.parent.appendChild(el);
+			}
 		}
 	});
 }
