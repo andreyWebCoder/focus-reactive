@@ -5,19 +5,19 @@
 	color: inherit;
 	text-transform: capitalize;
 	line-height: 120%;
-	@include adaptiv-value-to(font-size, 120, 48, $mobile);
+	@include adaptiv-value-to(font-size, 120, 48, $mobileSmallX);
 	&--md {
 		line-height: 100%;
 		letter-spacing: -0.02em;
-		@include adaptiv-value-to(font-size, 96, 48, $mobile);
+		@include adaptiv-value-to(font-size, 96, 48, $mobileSmallX);
 	}
 	&--sm {
 		line-height: 94%;
 		letter-spacing: -0.02em;
 		text-transform: none;
-		@include adaptiv-value-to(font-size, 88, 40, $mobile);
+		@include adaptiv-value-to(font-size, 88, 40, $mobileSmallX);
 	}
 	span {
-		color: $green;
+		color: var(--fr-green);
 	}
 }
