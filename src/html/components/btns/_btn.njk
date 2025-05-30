@@ -1,11 +1,7 @@
 {% if btn.class == 'primary' and btn.type == 'button' %}
 	<button type="button" class="bt bt-primary">{{btn.text}}</button>
-{% elif btn.class == 'info-sm' and btn.type == 'button' %}
-	<button type="button" class="bt bt-info bt-sm">{{btn.text}}</button>
 {% elif btn.class == 'primary' and btn.type == 'link' %}
 	<a href='#' type="button" class="bt bt-primary">{{btn.text}}</a>
-{% elif btn.class == 'info-sm' and btn.type == 'link' %}
-	<a href='#' class="bt bt-info bt-sm">{{btn.text}}</a>
 {% endif %}
 {# Вставка кнопки в структуру #}
 {# {% set btn = {
