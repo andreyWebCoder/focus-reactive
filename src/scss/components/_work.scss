@@ -1,27 +1,22 @@
 @use "../vars/vars" as *;
 @use "../mixins/breakpoints" as *;
 .work {
-	// .work__container
-
-	&__container {
-	}
-
-	// .work__body
-
-	&__body {
-	}
-
 	// .work__title
 
 	&__title {
 		margin-bottom: 64px;
+		vertical-align: top;
 		@include breakpoint($mobile) {
 			margin-bottom: 20px;
+		}
+		@include breakpoint($mobileSmallX) {
+			max-width: 300px;
 		}
 	}
 
 	// .work__wrap
 
 	&__wrap {
+		display: grid;
 	}
 }

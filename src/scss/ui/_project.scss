@@ -9,17 +9,22 @@
 	overflow: hidden;
 	transition: all var(--animate-duration) ease 0s;
 	cursor: pointer;
+	border-top: 1px solid var(--fr-gray-800);
+
 	&.open {
 		@media screen and (min-width: 768px) {
 			.ibg {
 				--pb: 50.9%;
 				height: 100%;
+				img {
+					transform: scale(1.15);
+				}
 			}
 			.project__name {
-				color: $white;
+				color: var(--fr-white);
 			}
 			.details__text {
-				color: $white;
+				color: var(--fr-white);
 			}
 		}
 		@media (any-hover: hover) {
@@ -32,13 +37,18 @@
 		}
 	}
 	&:last-child {
-		border-bottom: 1px solid $gray-800;
+		border-bottom: 1px solid var(--fr-gray-800);
 	}
-
+	&:nth-child(2) {
+		@include breakpoint($mobile) {
+			order: 1;
+		}
+	}
 	@include breakpoint($mobile) {
 		margin: 0 -24px;
 		display: block;
 		max-height: none;
+		order: 2;
 	}
 
 	// .project__card
@@ -47,7 +57,6 @@
 		display: flex;
 		gap: 24px;
 		padding: 20px 0;
-		border-top: 1px solid $gray-800;
 		cursor: inherit;
 		@include breakpoint($mobile) {
 			flex-direction: column;
@@ -61,7 +70,7 @@
 	&__left {
 		position: relative;
 		flex: 1 1 436px;
-		padding: 8px 0;
+		padding: 3px 0;
 		@include breakpoint($mobile) {
 			flex: 0 0 auto;
 		}
@@ -86,14 +95,16 @@
 		font-size: 48px;
 		line-height: 100%;
 		text-transform: capitalize;
-		color: $gray-800;
+		color: var(--fr-gray-800);
 		min-height: 56px;
+		display: flex;
+		align-items: flex-start;
 		transition:
 			color 0.3s ease 0s,
 			min-height 0.4s ease 0s;
-		@include adaptiv-value-to(font-size, 48, 24, $mobile);
+		@include adaptiv-value-to(font-size, 48, 24, $mobileSmallX);
 		@include breakpoint($mobile) {
-			color: $white;
+			color: var(--fr-white);
 			min-height: unset;
 		}
 	}
@@ -109,22 +120,32 @@
 		.ibg {
 			--pb: 56px;
 			height: 56px;
+			border: 1px solid var(--fr-gray-900);
+			border-radius: 24px;
+			overflow: hidden;
 			transition:
 				padding var(--animate-duration) ease 0s,
 				height var(--animate-duration) ease 0s;
-			overflow: hidden;
-			border: 1px solid $gray-900;
-			border-radius: 24px;
-			display: block;
 			@include breakpoint($mobile) {
 				--pb: 56%;
 				border-radius: 12px;
 				height: auto;
 			}
 			img {
+				transition: transform var(--animate-duration) ease 0s;
 				border-radius: 24px;
+				height: 104%;
 				@include breakpoint($mobile) {
 					border-radius: 12px;
+				}
+			}
+			&--lg {
+				img {
+					height: 104.75%;
+					@include breakpoint($mobile) {
+						height: 100%;
+						transform: scale(1.4);
+					}
 				}
 			}
 		}
@@ -150,10 +171,10 @@
 	height: 42px;
 	padding: 16px 20px;
 	border-radius: 999px;
-	background: rgba($white, 0.16);
+	background: rgba(var(--fr-white-rgb), 0.16);
 	backdrop-filter: blur(30px);
 	-webkit-backdrop-filter: blur(30px);
-	color: $white;
+	color: var(--fr-white);
 	pointer-events: none;
 	opacity: 0;
 	transform: scale(0);
@@ -164,7 +185,7 @@
 		content: "";
 		width: 0;
 		height: 0;
-		border-top: 6px solid $primary;
+		border-top: 6px solid var(--fr-primary);
 		border-left: 6px solid transparent;
 		position: absolute;
 		top: 0;
@@ -197,10 +218,10 @@
 	// .details__title
 
 	&__title {
-		color: $gray-600;
+		color: var(--fr-gray-600);
 		font-weight: 500;
 		line-height: 120%;
-		@include adaptiv-value-to(font-size, 14, 8, $mobile);
+		@include adaptiv-value-to(font-size, 14, 8, $mobileSmallX);
 	}
 
 	// .details__text
@@ -208,12 +229,12 @@
 	&__text {
 		font-weight: 500;
 		line-height: 120%;
-		color: $gray-800;
+		color: var(--fr-gray-800);
 		transition: color 0.3s ease 0s;
-		@include adaptiv-value-to(font-size, 24, 10, $mobile);
+		@include adaptiv-value-to(font-size, 24, 10, $mobileSmallX);
 		@include breakpoint($mobile) {
 			font-weight: 400;
-			color: $white;
+			color: var(--fr-white);
 		}
 	}
 }

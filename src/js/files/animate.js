@@ -1,138 +1,149 @@
-const projectItem = document.querySelectorAll('.project--animate');
-if (projectItem.length > 0) {
-	projectItem.forEach(item => {
+const projectItems = document.querySelectorAll('[data-js-project]');
+
+if (projectItems.length > 0 && window.innerWidth > 767.98) {
+	projectItems.forEach(item => {
 		let timeout;
+		let cachedHeight = item.scrollHeight + 2;
+		if (item.classList.contains('open')) {
+			item.style.maxHeight = cachedHeight - 2 + "px";
+		}
 
 		item.addEventListener('mouseenter', () => {
-			// Сбрасываем предыдущую задержку, если пользователь быстро двигает мышь
 			clearTimeout(timeout);
-
 			timeout = setTimeout(() => {
-				projectItem.forEach(subItem => {
+				projectItems.forEach(subItem => {
 					subItem.classList.remove('open');
+					subItem.style.maxHeight = null;
+					subItem.style.cursor = 'pointer';
 				});
+
 				item.classList.add('open');
-			}, 300); // задержка 300 мс
+
+				if (item.style.maxHeight !== `${cachedHeight}px`) {
+					item.style.maxHeight = cachedHeight + "px";
+				}
+				item.style.cursor = 'none';
+			}, 300);
 		});
 
-		// Чтобы отменить задержку, если мышь ушла раньше
 		item.addEventListener('mouseleave', () => {
 			clearTimeout(timeout);
+		});
+
+		item.addEventListener('mousemove', e => {
+			const cursor = item.querySelector('[data-js-cursor]');
+			if (cursor) {
+				window.requestAnimationFrame(() => {
+					cursor.style.top = `${e.clientY - cursor.offsetHeight / 2}px`;
+					cursor.style.left = `${e.clientX - cursor.offsetWidth / 2}px`;
+				});
+			}
 		});
 	});
 }
 
-const laptopScreen = window.matchMedia('(min-width: 768px)');
+
 gsap.registerPlugin(ScrollTrigger);
-const animPage = document.querySelector(".page--anim");
-const tlAnim = gsap.timeline();
-if (tlAnim) {
-	if (laptopScreen.matches) {
-		tlAnim.from(animPage, {
-			scrollTrigger: {
-				trigger: animPage,
-				start: '0 0',
-				scrub: true,
-				pin: true,
+let mm = gsap.matchMedia();
+const animPage = gsap.utils.toArray(".page--anim");
 
-			},
+if (animPage.length > 0) {
 
-		}).from('.anim__titles', {
+	const animateItem = (item, config) => {
+		const tl = gsap.timeline();
+
+		tl.from(item, {
 			scrollTrigger: {
-				trigger: animPage,
-				start: '0 5%',
-				end: '=+1000',
-				scrub: true,
-			},
-			y: '50vh',
-		}).from('.anim__title', {
-			scrollTrigger: {
-				trigger: animPage,
-				start: '0 0',
-				scrub: true,
-			},
-			css: {
-				color: 'white',
-			},
-		}).from('.anim-card', {
-			scrollTrigger: {
-				trigger: animPage,
-				start: 'top bottom',
-				scrub: true,
-			},
-			stagger: 0.15,
-			y: '-45vh',
-		}).from('.anim__titles', {
-			scrollTrigger: {
-				trigger: animPage,
-				start: 'top -0.4%',
-				scrub: true,
-				onEnter: () => document.querySelector(".anim__titles").classList.add("active"),
-				onLeaveBack: () => document.querySelector(".anim__titles").classList.remove("active"),
-			},
-		})
-		document.querySelectorAll('.anim-card__body').forEach(body => {
-			ScrollTrigger.create({
-				trigger: animPage,
-				start: '-10px top',
-				end: '100% 100%',
-				scrub: true,
-				onEnter: () => body.classList.add('active'),
-				onLeaveBack: () => body.classList.remove('active'),
-			});
-		});
-	} else {
-		tlAnim.from(animPage, {
-			scrollTrigger: {
-				trigger: animPage,
-				start: '-1% -1%',
+				trigger: item,
+				start: config.pinStart,
 				scrub: true,
 				pin: true,
 			}
-		}).from('.anim__titles', {
-			scrollTrigger: {
-				trigger: animPage,
-				start: '0 0',
-				scrub: true,
-			},
-			y: '15vh',
-		}).from('.anim__title', {
-			scrollTrigger: {
-				trigger: animPage,
-				start: '0 0',
-				scrub: true,
-			},
-			css: {
-				color: 'white',
-			},
-		}).from('.anim-card', {
-			scrollTrigger: {
-				trigger: animPage,
-				start: 'top bottom',
-				scrub: true,
-			},
-			stagger: 0.15,
-			y: '-45vh',
-		}).from('.anim__titles', {
-			scrollTrigger: {
-				trigger: animPage,
-				start: 'top -0.8%',
-				scrub: true,
-				onEnter: () => document.querySelector(".anim__titles").classList.add("active"),
-				onLeaveBack: () => document.querySelector(".anim__titles").classList.remove("active"),
-				// markers: true,
-			},
-
 		})
+			.from(item.querySelector('.anim__titles'), {
+				scrollTrigger: {
+					trigger: item,
+					start: config.titleStart,
+					end: config.titleEnd,
+					scrub: true,
+				},
+				y: config.titleY,
+			})
+			.from(item.querySelector('.anim__title'), {
+				scrollTrigger: {
+					trigger: item,
+					start: '0 0',
+					scrub: true,
+				},
+				css: {
+					color: 'white',
+				},
+			})
+			.from(item.querySelectorAll('.anim-card'), {
+				scrollTrigger: {
+					trigger: item,
+					start: 'top bottom',
+					scrub: true,
+				},
+				y: config.cardsY,
+			})
+			.to(item.querySelectorAll('.anim-card__line'), {
+				scrollTrigger: {
+					trigger: item,
+					start: 'top bottom',
+					scrub: true,
+				},
+				y: config.line,
+			})
+			.from(item.querySelectorAll('.anim-card__body'), {
+				scrollTrigger: {
+					trigger: item.querySelector('.anim__titles'),
+					start: config.classActiveStart,
+					end: 'bottom top',
+					scrub: true,
+					onEnter: () => {
+						item.querySelector('.anim__titles').classList.add('active');
+						item.querySelectorAll('.anim-card__body').forEach(body => body.classList.add('active'));
+					},
+					onLeaveBack: () => {
+						item.querySelector('.anim__titles').classList.remove('active');
+						item.querySelectorAll('.anim-card__body').forEach(body => body.classList.remove('active'));
+					},
+					// markers: true
+				}
+			});
+	};
 
-		document.querySelectorAll('.anim-card__body').forEach(body => {
-			ScrollTrigger.create({
-				trigger: animPage,
-				start: '-10px top',
-				scrub: true,
-				onEnter: () => body.classList.add('active'),
-				onLeaveBack: () => body.classList.remove('active'),
+	// Desktop
+	mm.add("(min-width: 768px)", () => {
+		animPage.forEach(item => {
+			animateItem(item, {
+				pinStart: '0 0',
+				titleStart: '0 5%',
+				titleEnd: '+=1000',
+				titleY: '100vh',
+				classToggleStart: '0.1% top',
+				cardsY: '-55%',
+				line: '51px',
+				classActiveStart: 'bottom-=250 center'
 			});
 		});
-	}
+		return () => { };
+	});
+
+	// Mobile
+	mm.add("(max-width: 767.98px)", () => {
+		animPage.forEach(item => {
+			animateItem(item, {
+				pinStart: '-1% -1%',
+				titleStart: '0 0',
+				titleEnd: '+=500',
+				titleY: '50vh',
+				classToggleStart: 'top -0.8%',
+				cardsY: '-100%',
+				classActiveStart: 'bottom-=50 center'
+			});
+		});
+		return () => { };
+	});
 }
