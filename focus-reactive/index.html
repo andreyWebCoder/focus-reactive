@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-	
 	<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" type="image/svg+xml" href="img/ico.svg">
-	<link rel="stylesheet" href="css/style.css?_v=20250522125733">
-	<title>Home</title>
-</head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/svg+xml" href="img/ico.svg">
+		<link rel="stylesheet" href="css/style.css?_v=20250530101643">
+		<title>Home</title>
+	</head>
+
 	<body>
 		<div class="wrapper">
 			<header class="header">
@@ -43,15 +43,9 @@
 				</li>
 			
 		</ul>
-		
-		
-	<button type="button" class="bt bt-primary">Contact Us</button>
-
-
-
 	</div>
 </nav>
-			<div class="header__left">
+			<div class="header__left" data-move-to=".nav__body" data-breakpoint="1024">
 				
 				
 	<button type="button" class="bt bt-primary">Contact Us</button>
@@ -63,10 +57,11 @@
 		</div>
 	</div>
 </header>
-			<main class="page">
-				<section class="fullscreen pb-md">
+			
+	<main class="page">
+		<section class="fullscreen pb-md">
 	<div class="fullscreen__bg ibg">
-		<picture><source srcset="img/hero-bg.webp" type="image/webp"><img src="img/hero-bg.jpg" alt=""></picture>
+		<picture><source srcset="img/hero-bg.webp" type="image/webp"><img src="img/hero-bg.jpg" alt="hero bg img"></picture>
 	</div>
 	<div class="fullscreen__container container">
 		<div class="fullscreen__body">
@@ -74,7 +69,6 @@
 				<h1 class="fullscreen__title title title--sm">
 				We build Composable Content Systems. <span>Fast and Scalable.</span>
 				</h1>
-				<p class="fullscreen__text fullscreen__text--sm">From Modular Marketing Websitesto AI-enriched content editing experiences. Experts in CMS, eCommerce and SEO.</p>
 			</div>
 			<div class="fullscreen__row">
 				<div class="fullscreen__wrap">
@@ -104,8 +98,9 @@
 	<div class="rating__value">4.9</div>
 </div>
 				</div>
-				<p class="fullscreen__text">From Modular Marketing Websitesto AI-enriched content editing experiences. Experts in CMS, eCommerce and SEO.</p>
-				
+				<div class="fullscreen__right">
+					<p class="fullscreen__text" data-move-to=".fullscreen__head" data-breakpoint="1023.98">From Modular Marketing Websitesto AI-enriched content editing experiences. Experts in CMS, eCommerce and SEO.</p>
+					
 <ul class="social">
 	
 	
@@ -122,24 +117,24 @@
 		</li>
 	
 </ul>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
-				<section class="fullscreen pt-md pb-md page--anim">
-	<div class="fullscreen__container container">
-		<div class="anim">
-			<div class="anim__body">
-				<div class="anim__titles">
-					<h2 class="anim__title title">Integrate anything</h2>
-					<h2 class="anim__title title anim__title--anim">
-						<span>ship everywhere</span>
-					</h2>
-				</div>
-				<div class="anim__cards">
-					
-					
-						<div class="anim-card">
+		<section class="anim pt-md pb-md page--anim">
+	<div class="anim__container container">
+		<div class="anim__body">
+			<div class="anim__titles">
+				<h2 class="anim__title title">Integrate anything</h2>
+				<h2 class="anim__title title anim__title--anim">
+					<span>ship everywhere</span>
+				</h2>
+			</div>
+			<div class="anim__cards">
+				
+				
+					<div class="anim-card">
 	<div class="anim-card__line"></div>
 	<div class="anim-card__body">
 		<div class="anim-card__item anim-card__item--top">
@@ -152,8 +147,8 @@
 		</div>
 	</div>
 </div>
-					
-						<div class="anim-card">
+				
+					<div class="anim-card">
 	<div class="anim-card__line"></div>
 	<div class="anim-card__body">
 		<div class="anim-card__item anim-card__item--top">
@@ -166,8 +161,8 @@
 		</div>
 	</div>
 </div>
-					
-						<div class="anim-card">
+				
+					<div class="anim-card">
 	<div class="anim-card__line"></div>
 	<div class="anim-card__body">
 		<div class="anim-card__item anim-card__item--top">
@@ -180,28 +175,27 @@
 		</div>
 	</div>
 </div>
-					
-				</div>
-
+				
 			</div>
 		</div>
 	</div>
 </section>
-				<section class="work pb-md pt-md">
+		<section class="work pb-md pt-md">
 	<div class="work__container container">
 		<div class="work__body">
-			<h1 class="work__title title title--md">
+			<h2 class="work__title title title--md">
 				Featured work
-			</h1>
+			</h2>
 			
 			<div class="work__wrap">
 				
-					<div class="project project--animate " >
-	<div class="project__card">
+					<div class="project " data-js-project>
+	<a href="#" class="project__card">
+		<div class="project__cursor cursor" data-js-cursor>View Case</div>
 		<div class="project__left">
-			<div class="project__col">
+			<div class="project__col" >
 				<h3 class="project__name">NotSoApe</h3>
-				<ul class="project__details details">
+				<ul class="project__details details" data-move-to=".project__right" data-breakpoint="768">
 					<li class="details__item">
 						<span class="details__title">Industry</span>
 						<span class="details__text">IT Services & Consultinig</span>
@@ -216,30 +210,23 @@
 					</li>
 				</ul>
 			</div>
-			<div class="project__btn">
-				
-				
-	<a href='#' class="bt bt-info bt-sm">View Case</a>
-
-
-
-			</div>
 		</div>
 		<div class="project__right">
-			<div class="ibg">
+			<div class="ibg ">
 				<picture><source srcset="img/work-2.webp" type="image/webp"><img src="img/work-2.jpg" alt="image work whith iphone"></picture>
 			</div>
-			<span class="badge">CMS</span>
+			<span class="badge" data-move-to=".project__col" data-breakpoint="768">CMS</span>
 		</div>
-	</div>
+	</a>
 </div>
 				
-					<div class="project project--animate open" >
-	<div class="project__card">
+					<div class="project open" data-js-project>
+	<a href="#" class="project__card">
+		<div class="project__cursor cursor" data-js-cursor>View Case</div>
 		<div class="project__left">
-			<div class="project__col">
+			<div class="project__col" >
 				<h3 class="project__name">EasyPark</h3>
-				<ul class="project__details details">
+				<ul class="project__details details" data-move-to=".project__right" data-breakpoint="768">
 					<li class="details__item">
 						<span class="details__title">Industry</span>
 						<span class="details__text">IT Services & Consultinig</span>
@@ -254,30 +241,23 @@
 					</li>
 				</ul>
 			</div>
-			<div class="project__btn">
-				
-				
-	<a href='#' class="bt bt-info bt-sm">View Case</a>
-
-
-
-			</div>
 		</div>
 		<div class="project__right">
-			<div class="ibg">
+			<div class="ibg ibg--lg">
 				<picture><source srcset="img/work-1.webp" type="image/webp"><img src="img/work-1.jpg" alt="image work whith note book"></picture>
 			</div>
-			<span class="badge">Ecommerce</span>
+			<span class="badge" data-move-to=".project__col" data-breakpoint="768">Ecommerce</span>
 		</div>
-	</div>
+	</a>
 </div>
 				
-					<div class="project project--animate " >
-	<div class="project__card">
+					<div class="project " data-js-project>
+	<a href="#" class="project__card">
+		<div class="project__cursor cursor" data-js-cursor>View Case</div>
 		<div class="project__left">
-			<div class="project__col">
+			<div class="project__col" >
 				<h3 class="project__name">GitNation</h3>
-				<ul class="project__details details">
+				<ul class="project__details details" data-move-to=".project__right" data-breakpoint="768">
 					<li class="details__item">
 						<span class="details__title">Industry</span>
 						<span class="details__text">IT Services & Consultinig</span>
@@ -292,30 +272,23 @@
 					</li>
 				</ul>
 			</div>
-			<div class="project__btn">
-				
-				
-	<a href='#' class="bt bt-info bt-sm">View Case</a>
-
-
-
-			</div>
 		</div>
 		<div class="project__right">
-			<div class="ibg">
+			<div class="ibg ">
 				<picture><source srcset="img/work-3.webp" type="image/webp"><img src="img/work-3.jpg" alt="image work whith iphone"></picture>
 			</div>
-			<span class="badge">Mobile App</span>
+			<span class="badge" data-move-to=".project__col" data-breakpoint="768">Mobile App</span>
 		</div>
-	</div>
+	</a>
 </div>
 				
-					<div class="project project--animate " >
-	<div class="project__card">
+					<div class="project " data-js-project>
+	<a href="#" class="project__card">
+		<div class="project__cursor cursor" data-js-cursor>View Case</div>
 		<div class="project__left">
-			<div class="project__col">
+			<div class="project__col" >
 				<h3 class="project__name">Secret Escapes</h3>
-				<ul class="project__details details">
+				<ul class="project__details details" data-move-to=".project__right" data-breakpoint="768">
 					<li class="details__item">
 						<span class="details__title">Industry</span>
 						<span class="details__text">IT Services & Consultinig</span>
@@ -330,30 +303,23 @@
 					</li>
 				</ul>
 			</div>
-			<div class="project__btn">
-				
-				
-	<a href='#' class="bt bt-info bt-sm">View Case</a>
-
-
-
-			</div>
 		</div>
 		<div class="project__right">
-			<div class="ibg">
+			<div class="ibg ">
 				<picture><source srcset="img/work-4.webp" type="image/webp"><img src="img/work-4.jpg" alt="image work whith tablet"></picture>
 			</div>
-			<span class="badge">Ecommerce</span>
+			<span class="badge" data-move-to=".project__col" data-breakpoint="768">Ecommerce</span>
 		</div>
-	</div>
+	</a>
 </div>
 				
-					<div class="project project--animate " >
-	<div class="project__card">
+					<div class="project " data-js-project>
+	<a href="#" class="project__card">
+		<div class="project__cursor cursor" data-js-cursor>View Case</div>
 		<div class="project__left">
-			<div class="project__col">
+			<div class="project__col" >
 				<h3 class="project__name">Caleffi</h3>
-				<ul class="project__details details">
+				<ul class="project__details details" data-move-to=".project__right" data-breakpoint="768">
 					<li class="details__item">
 						<span class="details__title">Industry</span>
 						<span class="details__text">IT Services & Consultinig</span>
@@ -368,190 +334,25 @@
 					</li>
 				</ul>
 			</div>
-			<div class="project__btn">
-				
-				
-	<a href='#' class="bt bt-info bt-sm">View Case</a>
-
-
-
-			</div>
 		</div>
 		<div class="project__right">
-			<div class="ibg">
+			<div class="ibg ">
 				<picture><source srcset="img/work-5.webp" type="image/webp"><img src="img/work-5.jpg" alt="image work whith note book"></picture>
 			</div>
-			<span class="badge">Web Design</span>
+			<span class="badge" data-move-to=".project__col" data-breakpoint="768">Web Design</span>
 		</div>
-	</div>
-</div>
-				
-			</div>
-			<div class="work__wrap mob">
-				
-					<div class="project">
-	<div class="project__card">
-		<div class="project__top">
-			<h3 class="project__name">NotSoApe
-			</h3>
-			<span class="badge badge--sm badge--light">CMS</span>
-		</div>
-		<div class="project__right">
-			<a href="#" class="project__link ibg">
-				<picture><source srcset="img/work-2.webp" type="image/webp"><img src="img/work-2.jpg" alt="image work whith iphone"></picture>
-			</a>
-		</div>
-		<div class="project__left">
-			<ul class="project__details details">
-				<li class="details__item">
-					<span class="details__title">Industry</span>
-					<span class="details__text">IT Services & Consultinig</span>
-				</li>
-				<li class="details__item">
-					<span class="details__title">Technical Stack</span>
-					<span class="details__text">Storyblok <br> Next.JS <br> Vercel</span>
-				</li>
-				<li class="details__item">
-					<span class="details__title">Scope of Work</span>
-					<span class="details__text">Design <br> Website development <br> Maintenance</span>
-				</li>
-			</ul>
-		</div>
-	</div>
-</div>
-				
-					<div class="project">
-	<div class="project__card">
-		<div class="project__top">
-			<h3 class="project__name">EasyPark
-			</h3>
-			<span class="badge badge--sm badge--light">Ecommerce</span>
-		</div>
-		<div class="project__right">
-			<a href="#" class="project__link ibg">
-				<picture><source srcset="img/work-1.webp" type="image/webp"><img src="img/work-1.jpg" alt="image work whith note book"></picture>
-			</a>
-		</div>
-		<div class="project__left">
-			<ul class="project__details details">
-				<li class="details__item">
-					<span class="details__title">Industry</span>
-					<span class="details__text">IT Services & Consultinig</span>
-				</li>
-				<li class="details__item">
-					<span class="details__title">Technical Stack</span>
-					<span class="details__text">Storyblok <br> Next.JS <br> Vercel</span>
-				</li>
-				<li class="details__item">
-					<span class="details__title">Scope of Work</span>
-					<span class="details__text">Design <br> Website development <br> Maintenance</span>
-				</li>
-			</ul>
-		</div>
-	</div>
-</div>
-				
-					<div class="project">
-	<div class="project__card">
-		<div class="project__top">
-			<h3 class="project__name">GitNation
-			</h3>
-			<span class="badge badge--sm badge--light">Mobile App</span>
-		</div>
-		<div class="project__right">
-			<a href="#" class="project__link ibg">
-				<picture><source srcset="img/work-3.webp" type="image/webp"><img src="img/work-3.jpg" alt="image work whith iphone"></picture>
-			</a>
-		</div>
-		<div class="project__left">
-			<ul class="project__details details">
-				<li class="details__item">
-					<span class="details__title">Industry</span>
-					<span class="details__text">IT Services & Consultinig</span>
-				</li>
-				<li class="details__item">
-					<span class="details__title">Technical Stack</span>
-					<span class="details__text">Storyblok <br> Next.JS <br> Vercel</span>
-				</li>
-				<li class="details__item">
-					<span class="details__title">Scope of Work</span>
-					<span class="details__text">Design <br> Website development <br> Maintenance</span>
-				</li>
-			</ul>
-		</div>
-	</div>
-</div>
-				
-					<div class="project">
-	<div class="project__card">
-		<div class="project__top">
-			<h3 class="project__name">Secret Escapes
-			</h3>
-			<span class="badge badge--sm badge--light">Ecommerce</span>
-		</div>
-		<div class="project__right">
-			<a href="#" class="project__link ibg">
-				<picture><source srcset="img/work-4.webp" type="image/webp"><img src="img/work-4.jpg" alt="image work whith tablet"></picture>
-			</a>
-		</div>
-		<div class="project__left">
-			<ul class="project__details details">
-				<li class="details__item">
-					<span class="details__title">Industry</span>
-					<span class="details__text">IT Services & Consultinig</span>
-				</li>
-				<li class="details__item">
-					<span class="details__title">Technical Stack</span>
-					<span class="details__text">Storyblok <br> Next.JS <br> Vercel</span>
-				</li>
-				<li class="details__item">
-					<span class="details__title">Scope of Work</span>
-					<span class="details__text">Design <br> Website development <br> Maintenance</span>
-				</li>
-			</ul>
-		</div>
-	</div>
-</div>
-				
-					<div class="project">
-	<div class="project__card">
-		<div class="project__top">
-			<h3 class="project__name">Caleffi
-			</h3>
-			<span class="badge badge--sm badge--light">Web Design</span>
-		</div>
-		<div class="project__right">
-			<a href="#" class="project__link ibg">
-				<picture><source srcset="img/work-5.webp" type="image/webp"><img src="img/work-5.jpg" alt="image work whith note book"></picture>
-			</a>
-		</div>
-		<div class="project__left">
-			<ul class="project__details details">
-				<li class="details__item">
-					<span class="details__title">Industry</span>
-					<span class="details__text">IT Services & Consultinig</span>
-				</li>
-				<li class="details__item">
-					<span class="details__title">Technical Stack</span>
-					<span class="details__text">Storyblok <br> Next.JS <br> Vercel</span>
-				</li>
-				<li class="details__item">
-					<span class="details__title">Scope of Work</span>
-					<span class="details__text">Design <br> Website development <br> Maintenance</span>
-				</li>
-			</ul>
-		</div>
-	</div>
+	</a>
 </div>
 				
 			</div>
 		</div>
 	</div>
 </section>
-			</main>
+	</main>
+
 		</div>
-		<script src="js/vendors.js?_v=20250522125733"></script>
-<script src="js/app.js?_v=20250522125733"></script>
+		<script src="js/vendors.js?_v=20250530101643"></script>
+		<script src="js/app.js?_v=20250530101643"></script>
 	</body>
 
 </html>
