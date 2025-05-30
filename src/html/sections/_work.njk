@@ -16,7 +16,8 @@
 					badge: 'Ecommerce',
 					img: "@img/work-1.jpg",
 					altImg: "image work whith note book",
-					class: "open"
+					class: "open",
+					imgClass:'ibg--lg'
 				}, {
 					name: 'GitNation',
 					badge: 'Mobile App',
@@ -41,52 +42,6 @@
 				{% for card in cards %}
 					{% include 'html/components/cards/_card-project.njk' %}
 				{% endfor %}
-				{# ssssssssssssssssssssssssssssssss #}
-				<div class="project" data-js-project >
-					<div class="project__card">
-						<div class="project__left">
-							<div class="project__col">
-								<h3 class="project__name">NAme NAme More</h3>
-								<ul class="project__details details">
-									<li class="details__item">
-										<span class="details__title">Industry</span>
-										<span class="details__text">IT Services & Consultinig</span>
-									</li>
-									<li class="details__item">
-										<span class="details__title">Technical Stack</span>
-										<span class="details__text">Storyblok <br> Next.JS <br> Vercel</span>
-									</li>
-									<li class="details__item">
-										<span class="details__title">Scope of Work</span>
-										<span class="details__text">Design <br> Website development <br> Maintenance</span>
-									</li>
-									<li class="details__item">
-										<span class="details__title">Scope of Work</span>
-										<span class="details__text">Design <br> Website development <br> Maintenance</span>
-									</li>
-									<li class="details__item">
-										<span class="details__title">Scope of Work</span>
-										<span class="details__text">Design <br> Website development <br> Maintenance</span>
-									</li>
-									<li class="details__item">
-										<span class="details__title">Scope of Work</span>
-										<span class="details__text">Design <br> Website development <br> Maintenance</span>
-									</li>
-									<li class="details__item">
-										<span class="details__title">Scope of Work</span>
-										<span class="details__text">Design <br> Website development <br> Maintenance</span>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="project__right">
-							<div class="ibg">
-								<img src="@img/work-3.jpg" alt="{{card.altImg}}">
-							</div>
-							<span class="badge">badge</span>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
