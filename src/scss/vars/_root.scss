@@ -1,0 +1,32 @@
+@use "vars" as *;
+:root {
+	--fr-font-famaly: #{$fontFamily};
+	--fr-font-size: #{$fontSize};
+	--fr-main-lh: #{$main-lh};
+	--fr-min-width: #{$minWidth};
+	--fr-max-width: #{$maxWidth};
+	--fr-max-width-container: #{$maxWidthContainer};
+
+	--fr-black: #{$black};
+	--fr-gray-600: #{$gray-600};
+	--fr-gray-700: #{$gray-700};
+	--fr-gray-800: #{$gray-800};
+	--fr-gray-900: #{$gray-900};
+	--fr-white: #{$white};
+
+	--fr-black-rgb: #{$black-rgb};
+	--fr-white-rgb: #{$white-rgb};
+
+	--fr-green: #{$green};
+	--fr-primary: #{$primary};
+
+	--fr-main-color: #{$mainColor};
+	--fr-bg-body: #{$bg-body};
+
+	--fr-bt-ipt-height: #{$bt-ipt-height};
+	--fr-bt-ipt-padding-y: #{$bt-ipt-padding-y};
+	--fr-bt-ipt-padding-x: #{$bt-ipt-padding-x};
+	--fr-bt-ipt-rounded: #{$bt-ipt-rounded};
+
+	// button
+}

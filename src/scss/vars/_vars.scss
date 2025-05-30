@@ -9,11 +9,11 @@ $minWidth: 320;
 $maxWidth: 1440;
 $maxWidthContainer: 1360;
 // Брейк-поинты
-$pc: $maxWidthContainer; // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
-$tablet: 1023.98; // Планшеты, некоторые телефоны в горизонтальном положении
+$pc: $maxWidthContainer; // ПК, ноутбуки
+$tablet: 1023.98; // Планшеты
 $mobile: 767.98; // Телефоны L
 $mobileSmall: 479.98; // Телефоны S
-$mobileSmallX: 359.98; // Телефоны SX
+$mobileSmallX: 375; // Телефоны SX
 //Цвета
 $black: #000000;
 $gray-600: #727272;
@@ -21,6 +21,9 @@ $gray-700: #3b3b3b;
 $gray-800: #2c2c2c;
 $gray-900: #171717;
 $white: #ffffff;
+
+$black-rgb: 0, 0, 0;
+$white-rgb: 255, 255, 255;
 
 $green: #00e56d;
 
@@ -36,16 +39,6 @@ $bt-ipt-height: 44px;
 $bt-ipt-padding-y: 16px;
 $bt-ipt-padding-x: 24px;
 $bt-ipt-rounded: 999px;
-
-$bt-ipt-height-lg: 62px;
-$bt-ipt-padding-y-lg: 8px;
-$bt-ipt-padding-x-lg: 50px;
-$bt-ipt-rounded-lg: 40px;
-
-$bt-ipt-height-sm: 42px;
-$bt-ipt-padding-y-sm: 10px;
-$bt-ipt-padding-x-sm: 20px;
-$bt-ipt-rounded-sm: 999px;
 // Глобальние переменные для кнопок и полей ввода
 
 //</ПЕРЕМЕННЫЕ>======================================================
