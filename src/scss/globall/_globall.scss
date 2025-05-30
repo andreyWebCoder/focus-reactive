@@ -3,21 +3,19 @@
 @use "../mixins/resources" as *;
 @use "null";
 @use "container";
-@use "animate";
 
 body {
-	font-family: $fontFamily;
-	font-size: $fontSize;
-	background-color: $bg-body;
-	color: $mainColor;
-	line-height: $main-lh;
+	font-family: var(--fr-font-famaly);
+	font-size: var(--fr-font-size);
+	background-color: var(--fr-bg-body);
+	color: var(--fr-main-color);
+	line-height: var(--fr-main-lh);
 	// Скролл заблокирован
-	&.lock {
-		overflow: hidden;
-		touch-action: none;
-	}
-	// Сайт загружен
-	&.loaded {
+	&.lock-tablet {
+		@include breakpoint($tablet) {
+			overflow: hidden;
+			touch-action: none;
+		}
 	}
 }
 // Оболочка ============================================================================================================================================================================================================================================================================================================================================================================================================================================
