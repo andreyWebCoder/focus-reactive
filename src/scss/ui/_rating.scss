@@ -4,6 +4,7 @@
 	align-items: center;
 	gap: 4px;
 	font-size: 13px;
+	height: 13px;
 	line-height: 1;
 	// .rating__body
 
@@ -31,7 +32,7 @@
 			height: 100%;
 			top: 0;
 			left: 0;
-			color: $green;
+			color: var(--fr-green);
 		}
 	}
 

@@ -1,4 +1,3 @@
-@use "../vars/vars" as *;
 * {
 	padding: 0px;
 	margin: 0px;
@@ -20,10 +19,10 @@ a:active {
 html,
 body {
 	height: 100%;
-	min-width: $minWidth + px;
+	min-width: calc(var(--fr-min-width) * 1px);
 }
 body {
-	//text-rendering: optimizeLegibility;
+	text-rendering: optimizeLegibility;
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
@@ -33,7 +32,7 @@ body {
 input,
 button,
 textarea {
-	font-family: $fontFamily;
+	font-family: var(--fr-font-famaly);
 	font-size: inherit;
 }
 button {

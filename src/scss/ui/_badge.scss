@@ -1,21 +1,24 @@
 @use "../vars/vars" as *;
+@use "../mixins/breakpoints" as *;
+@use "../mixins/resources" as *;
 .badge {
+	min-width: 140px;
 	font-weight: 500;
 	line-height: 100%;
 	display: inline-flex;
 	align-items: center;
+	justify-content: center;
 	padding: 12px 27px;
-	background: rgba($black, 0.4);
+	background: rgba(var(--fr-black-rgb), 0.4);
 	backdrop-filter: blur(24px);
 	-webkit-backdrop-filter: blur(24px);
 	border-radius: 999px;
-	color: $white;
-	&--sm {
+	color: var(--fr-white);
+	@include breakpoint($mobile) {
 		font-size: 10px;
 		padding: 8px 14px;
-	}
-	&--light {
 		font-size: 10px;
-		background: rgba($white, 0.16);
+		background: rgba(var(--fr-white-rgb), 0.16);
+		min-width: unset;
 	}
 }

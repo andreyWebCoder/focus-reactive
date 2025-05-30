@@ -2,90 +2,50 @@
 @use "../mixins/breakpoints" as *;
 // ===== Кнопки =====
 // ===== Переменние (глобальние настройки в _vars.scss) =====
-$bt-height: $bt-ipt-height;
-$bt-padding-y: $bt-ipt-padding-y;
-$bt-padding-x: $bt-ipt-padding-x;
-$bt-font-size: 16px;
-$bt-font-weight: 500;
-$bt-line-height: $main-lh;
-$bt-border: 1px solid transparent;
-
-// large
-$bt-height-lg: $bt-ipt-height-lg;
-$bt-padding-y-lg: $bt-ipt-padding-y-lg;
-$bt-padding-x-lg: $bt-ipt-padding-x-lg;
-$bt-font-size-lg: 24px;
-// small
-$bt-height-sm: $bt-ipt-height-sm;
-$bt-padding-y-sm: $bt-ipt-padding-y-sm;
-$bt-padding-x-sm: $bt-ipt-padding-x-sm;
-$bt-font-size-sm: 14px;
-$bt-font-weight-sm: 400;
-
-$bt-color: $black;
-
-$bt-link-fw: 400;
-$bt-link-fz: 16px;
-$bt-link-color: $primary;
-$bt-link-hover-color: rgba($primary, 0.75);
-
-$bt-rounded: $bt-ipt-rounded;
-$bt-rounded-sm: $bt-ipt-rounded-sm;
-$bt-rounded-lg: $bt-ipt-rounded-lg;
-
-$bt-transition:
-	opacity 0.3s ease-out,
-	background 0.3s ease-out;
-// ===== Butoons class bt=====
 .bt {
+	--fr-bt-height: #{$bt-ipt-height};
+	--fr-bt-padding-y: #{$bt-ipt-padding-y};
+	--fr-bt-padding-x: #{$bt-ipt-padding-x};
+	--fr-bt-font-size: 16px;
+	--fr-bt-font-weight: 500;
+	--fr-bt-line-height: var(--fr-main-lh);
+	--fr-bt-border: 1px solid transparent;
+	--fr-bt-color: var(--fr-black);
+	--fr-bt-rounded: #{$bt-ipt-rounded};
+	--fr-bt-transition: opacity 0.3s ease-out, background 0.3s ease-out;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	grid-gap: 20px;
-	font-size: $bt-font-size;
-	line-height: $bt-line-height;
-	font-weight: $bt-font-weight;
-	height: $bt-height;
-	padding: $bt-padding-y $bt-padding-x;
-	border: $bt-border;
-	border-radius: $bt-rounded;
-	transition: $bt-transition;
-	color: $bt-color;
+	font-size: var(--fr-bt-font-size);
+	line-height: var(--fr-bt-line-height);
+	font-weight: var(--fr-bt-font-weight);
+	height: var(--fr-bt-height);
+	padding: var(--fr-bt-padding-y) var(--fr-bt-padding-x);
+	border: var(--fr-bt-border);
+	border-radius: var(--fr-bt-rounded);
+	transition: var(--fr-bt-transition);
+	color: var(--fr-bt-color);
 	text-decoration: none;
 	cursor: pointer;
 
 	&.disabled,
 	&:disabled {
-		background-color: $gray-600;
+		background-color: var(--fr-gray-600);
 		pointer-events: none !important;
 		border-color: transparent;
-		color: $white;
+		color: var(--fr-white);
 		@media (any-hover: hover) {
 			&:hover {
-				background-color: $gray-600;
+				background-color: var(--fr-gray-600);
 				pointer-events: none !important;
 			}
 		}
 	}
 }
-// ===== Размеры кнопок =====
-.bt-lg {
-	height: $bt-height-lg;
-	padding: $bt-padding-y-lg $bt-padding-x-lg;
-	border-radius: $bt-rounded-lg;
-	font-size: $bt-font-size-lg;
-}
-.bt-sm {
-	height: $bt-height-sm;
-	padding: $bt-padding-y-sm $bt-padding-x-sm;
-	border-radius: $bt-rounded-sm;
-	font-size: $bt-font-size-sm;
-	font-weight: $bt-font-weight-sm;
-}
-
 // ===== Цвета кнопок по предназначению =====
 .bt-primary {
-	background: $primary;
+	background: var(--fr-primary);
 	border-width: 0;
 	@media (any-hover: hover) {
 		&:hover {
@@ -97,38 +57,11 @@ $bt-transition:
 	}
 }
 
-.bt-info {
-	background: rgba($white, 0.16);
-	backdrop-filter: blur(30px);
-	-webkit-backdrop-filter: blur(30px);
-	color: $white;
-	position: relative;
-	&::before {
-		content: "";
-		width: 0;
-		height: 0;
-		border-top: 6px solid $primary;
-		border-left: 6px solid transparent;
-		position: absolute;
-		top: 0;
-		right: 0;
-		transition: transform 0.3s ease 0s;
-	}
-	@media (any-hover: hover) {
-		&:hover {
-			background: rgba($white, 0.25);
-			&::before {
-				transform: scale(1.2) translate(2px, -2px);
-			}
-		}
-	}
-}
-
 // ===== Кастомнаие кнопки =====
 .bt-icon {
 	--size-icon: 14px;
 	--size: 40px;
-	color: $white;
+	color: var(--fr-white);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -139,7 +72,7 @@ $bt-transition:
 	background: transparent;
 	padding: 0;
 	position: relative;
-	border: 1px solid $gray-700;
+	border: 1px solid var(--fr-gray-700);
 	border-radius: 50%;
 	cursor: pointer;
 	transition:
@@ -149,7 +82,6 @@ $bt-transition:
 	@media (any-hover: hover) {
 		&:hover {
 			opacity: 0.75;
-			transform: scale(1.1);
 		}
 	}
 	&:disabled,
@@ -158,40 +90,10 @@ $bt-transition:
 		pointer-events: none;
 		color: #d0d0d0;
 	}
-	// &.bt-prev {
-	// 	&:before {
-	// 		transform: rotate(-180deg);
-	// 	}
-	// }
-	// &.bt-search {
-	// 	font-size: 30px;
-	// 	border-radius: 5px;
-	// 	background: $gray-100;
-	// }
-	// // bt-icon--lg
-	// &--lg {
-	// 	--size-icon: 45px;
-	// 	--size: 45px;
-	// 	@media (any-hover: hover) {
-	// 		&:hover {
-	// 			color: $primary;
-	// 		}
-	// 	}
-	// }
-	// // bt-icon--md
-	// &--md {
-	// 	--size-icon: 30px;
-	// 	--size: 40px;
-	// }
-	// // bt-icon--sm
-	// &--sm {
-	// 	--size-icon: 20px;
-	// 	--size: 24px;
-	// }
 }
 .bt-burger {
 	display: none;
-	@include breakpoint($mobile) {
+	@include breakpoint($tablet) {
 		width: 48px;
 		height: 48px;
 		gap: 6px;
@@ -205,7 +107,7 @@ $bt-transition:
 			content: "";
 			width: 100%;
 			height: 2px;
-			background-color: $white;
+			background-color: var(--fr-white);
 			transition: transform 0.3s ease 0s;
 		}
 
