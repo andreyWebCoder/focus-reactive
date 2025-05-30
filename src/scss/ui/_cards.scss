@@ -11,7 +11,7 @@
 	// .anim-card__line
 	&__line {
 		width: 1px;
-		background-color: $gray-800;
+		background-color: var(--fr-gray-800);
 		@include adaptiv-value-to(height, 140, 64, $mobile);
 	}
 	&:nth-child(2) {
@@ -30,9 +30,10 @@
 	&__body {
 		position: relative;
 		overflow: hidden;
-		border: 1px solid $gray-800;
+		border: 1px solid var(--fr-gray-800);
+		background-color: var(--fr-black);
 		border-radius: 24px;
-		@include adaptiv-value-to(width, 240, 100, $mobile);
+		@include adaptiv-value-to(width, 240, 100, $mobileSmallX);
 		@include breakpoint($mobile) {
 			border-radius: 10px;
 		}
@@ -46,7 +47,7 @@
 		}
 	}
 	&__body {
-		@include adaptiv-value-to(height, 240, 100, $mobile);
+		@include adaptiv-value-to(height, 240, 100, $mobileSmallX);
 	}
 	// .anim-card__item
 
@@ -62,7 +63,7 @@
 		justify-content: center;
 		flex-direction: column;
 		gap: 24px;
-		background-color: $black;
+
 		transition: left 0.5s ease 0s;
 		@include breakpoint($mobile) {
 			gap: 10px;
@@ -79,7 +80,7 @@
 		img {
 			width: 120px;
 			height: 100%;
-			@include adaptiv-value-to(width, 120, 50, $mobile);
+			@include adaptiv-value-to(width, 120, 50, $mobileSmallX);
 		}
 	}
 
@@ -90,6 +91,6 @@
 		font-size: 28px;
 		line-height: 110%;
 		text-align: center;
-		@include adaptiv-value-to(font-size, 28, 12, $mobile);
+		@include adaptiv-value-to(font-size, 28, 12, $mobileSmallX);
 	}
 }
