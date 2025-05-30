@@ -21,7 +21,7 @@
 			</div>
 		</div>
 		<div class="project__right">
-			<div class="ibg">
+			<div class="ibg {{card.imgClass | default('')}}">
 				<img src="{{card.img}}" alt="{{card.altImg}}">
 			</div>
 			<span class="badge" data-move-to=".project__col" data-breakpoint="768">{{card.badge}}</span>
