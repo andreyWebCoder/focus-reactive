@@ -1,6 +1,6 @@
 <section class="fullscreen pb-md">
 	<div class="fullscreen__bg ibg">
-		<img src="@img/hero-bg.jpg" alt="">
+		<img src="@img/hero-bg.jpg" alt="hero bg img">
 	</div>
 	<div class="fullscreen__container container">
 		<div class="fullscreen__body">
@@ -8,7 +8,6 @@
 				<h1 class="fullscreen__title title title--sm">
 				We build Composable Content Systems. <span>Fast and Scalable.</span>
 				</h1>
-				<p class="fullscreen__text fullscreen__text--sm">From Modular Marketing Websitesto AI-enriched content editing experiences. Experts in CMS, eCommerce and SEO.</p>
 			</div>
 			<div class="fullscreen__row">
 				<div class="fullscreen__wrap">
@@ -17,8 +16,10 @@
 					</div>
 					{% include 'html/components/_rating.njk' %}
 				</div>
-				<p class="fullscreen__text">From Modular Marketing Websitesto AI-enriched content editing experiences. Experts in CMS, eCommerce and SEO.</p>
-				{% include 'html/components/btns/_social-links.njk' %}
+				<div class="fullscreen__right">
+					<p class="fullscreen__text" data-move-to=".fullscreen__head" data-breakpoint="1023.98">From Modular Marketing Websitesto AI-enriched content editing experiences. Experts in CMS, eCommerce and SEO.</p>
+					{% include 'html/components/btns/_social-links.njk' %}
+				</div>
 			</div>
 		</div>
 	</div>
