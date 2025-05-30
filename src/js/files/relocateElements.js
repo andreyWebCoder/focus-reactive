@@ -1,4 +1,5 @@
-// data-move-to="" data-breakpoint=""
+//Класс родитя куда переносим елемент data-move-to="",
+//розмер вьюпорта когда нужно переносить елемент data-breakpoint=""
 const movableElements = document.querySelectorAll("[data-move-to]");
 const originalData = new Map();
 
